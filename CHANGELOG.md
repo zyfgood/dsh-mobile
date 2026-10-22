@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 — 未发布
+
+- 新增客户端服务 `dshMobile`（`open/close/toggle/getSnapshot/subscribe/setExternalLauncher`），供桌宠等插件接管手机入口。
+- 手机面板支持锚定到桌宠上方，窗口边缘自动翻转；桌宠可见时自动隐藏独立悬浮按钮，桌宠隐藏时回退显示。
+- `/dsh-mobile/status` 新增 `clients`（当前 SSE 查看连接数）和 `lastLoginAt`。
+- 面板显示正在查看的手机连接数。
+- 与 `@zyfgood/dsh-whale-girl` 0.3.0 联动：鲸鱼鳍里的手机、右键菜单入口、手机连上时的桌宠反应。
+
 ## 0.1.0 — 2026-10-22
 
 首个公开版本。
