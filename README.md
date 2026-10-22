@@ -19,6 +19,36 @@
 |---|---|
 | ![手机端 Markdown](docs/mobile-markdown.png) | ![手机端登录](docs/login.png) |
 
+## 桌宠联动
+
+> 本节的 0.2.0 / 0.3.0 为联动开发分支，尚未发布到 npm；npm 上的 0.1.0 不包含 `dshMobile` 服务。
+
+配合 [`@zyfgood/dsh-whale-girl`](https://github.com/zyfgood/dsh-whale-girl) 0.3.0+：
+
+- 鲸鱼右侧鳍里拿着一部小手机；点击手机打开/关闭手机端面板，面板锚定在桌宠上方；
+- 右键菜单新增 **📱 手机访问**（兜底入口）；
+- 手机首次连上时，桌宠挥手说“手机连上啦～”，手机出现呼吸光环；
+- 桌宠隐藏时，手机面板入口自动回退到左下角按钮；单击桌宠仍然是戳戳，双击/拖拽不变；
+- 没装桌宠或桌宠版本过旧时，手机端保持原来的独立按钮，不会报错。
+
+![桌宠拿着手机](docs/pet-phone.png)
+
+![手机连接时桌宠的反应](docs/pet-phone-connected.png)
+
+客户端服务契约（`ctx.provide('dshMobile', ...)`）：
+
+```js
+{
+  version: 1,
+  open(anchor?), close(), toggle(anchor?),
+  getSnapshot(),   // { open, anchor, status, error, externalLauncher }
+  subscribe(fn),
+  setExternalLauncher(enabled)  // 桌宠接管入口时隐藏左下角按钮
+}
+```
+
+其他桌宠也可以按同一契约接入；服务只负责 UI 开关和状态，不接触手机端令牌。
+
 ---
 
 ## 为什么需要它

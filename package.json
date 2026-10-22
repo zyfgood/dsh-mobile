@@ -1,6 +1,6 @@
 {
   "name": "@zyfgood/dsh-mobile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "DSH 插件：手机端 Web UI。同一局域网内用手机浏览全部 DSH 会话、实时查看回复并继续对话；桌面端提供二维码与访问链接。Mobile session client for DeepSeek Harness.",
   "type": "module",
   "main": "lib/index.js",
