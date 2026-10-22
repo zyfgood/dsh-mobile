@@ -21,6 +21,8 @@
 
 ## 桌宠联动
 
+> 本节的 0.2.0 / 0.3.0 为联动开发分支，尚未发布到 npm；npm 上的 0.1.0 不包含 `dshMobile` 服务。
+
 配合 [`@zyfgood/dsh-whale-girl`](https://github.com/zyfgood/dsh-whale-girl) 0.3.0+：
 
 - 鲸鱼右侧鳍里拿着一部小手机；点击手机打开/关闭手机端面板，面板锚定在桌宠上方；
