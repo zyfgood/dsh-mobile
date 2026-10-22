@@ -1,0 +1,10 @@
+# dsh-mobile bundle patch
+#
+# `dsh plugin --profile <name> add <path-or-spec>` installs this package and
+# appends it to dsh.profile.bundles; this patch inserts the plugin row when the
+# profile is composed. The guard avoids a duplicate row if another layer has
+# already mounted @zyfgood/dsh-mobile under a different id.
+- insert:
+    - id: dsh-mobile
+      name: '@zyfgood/dsh-mobile'
+      disabled: !!js "[...ctx.loader.entries()].some((e) => e.options.name === '@zyfgood/dsh-mobile' && e.options.id !== 'dsh-mobile' && !e.disabled)"

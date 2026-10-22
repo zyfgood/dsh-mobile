@@ -1,0 +1,93 @@
+{
+  "name": "@zyfgood/dsh-mobile",
+  "version": "0.1.0",
+  "description": "DSH 插件：手机端 Web UI。同一局域网内用手机浏览全部 DSH 会话、实时查看回复并继续对话；桌面端提供二维码与访问链接。Mobile session client for DeepSeek Harness.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "zyfgood",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyfgood/dsh-mobile.git"
+  },
+  "homepage": "https://github.com/zyfgood/dsh-mobile#readme",
+  "bugs": {
+    "url": "https://github.com/zyfgood/dsh-mobile/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.2 <0.3.0-0"
+  },
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js && node --check lib/web/app.js",
+    "pack": "npm pack"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "deepseek",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "mobile",
+    "mobile-web",
+    "pwa",
+    "web-ui",
+    "remote",
+    "session",
+    "lan"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4",
+    "@deepseek-ai/schemastery": "^3.18.4",
+    "@deepseek-ai/dsh-api-session-controller": ">=0.2.1-rc.2 <0.3.0-0",
+    "@deepseek-ai/dsh-host-webserver": ">=0.2.1-rc.2 <0.3.0-0",
+    "@deepseek-ai/dsh-client-ui-slots": ">=0.2.1-rc.2 <0.3.0-0",
+    "react": "^18.2.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web"
+    },
+    "catalog": {
+      "category": "ui",
+      "summary": {
+        "en": "Mobile web UI for DeepSeek Harness: a token-protected LAN server that lists all sessions, streams replies over SSE, and lets a phone continue any conversation; the desktop GUI shows a QR entry.",
+        "zh": "DSH 手机端 Web UI：带令牌认证的局域网服务，手机可浏览全部会话、实时查看回复并继续对话；桌面 GUI 提供二维码入口。"
+      },
+      "capabilities": [
+        "sessions",
+        "mobile",
+        "lan",
+        "sse",
+        "qr",
+        "markdown",
+        "pwa"
+      ]
+    },
+    "manifestVersion": 1
+  }
+}
